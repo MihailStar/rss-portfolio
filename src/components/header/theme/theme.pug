@@ -1,0 +1,8 @@
+include ../../icon/icon.pug
+
+mixin theme
+  button.theme.theme_dark(aria-label="Toggle theme", data-theme="dark")&attributes(attributes)
+    span
+      +icon('sun')(width="40", height="40")
+    span
+      +icon('moon')(width="40", height="40")

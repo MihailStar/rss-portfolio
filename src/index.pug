@@ -1,0 +1,35 @@
+extends ./templates/main.pug
+
+block variables
+  -
+    const pageTitle = 'Alexa Rise';
+    const rootClass = 'portfolio';
+
+block head
+  link(rel="preconnect", href="https://fonts.googleapis.com")
+  link(rel="preconnect", href="https://fonts.gstatic.com", crossorigin)
+  link(
+    rel="stylesheet",
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Merriweather:wght@700&display=swap"
+  )
+
+block body
+  div(class=`${rootClass}__header`)
+    +header
+
+  main
+    div(class=`${rootClass}__hero`)
+      +hero#hero
+    div(class=`${rootClass}__skills`)
+      +skills#skills
+    div(class=`${rootClass}__portfolio`)
+      +portfolio#portfolio
+    div(class=`${rootClass}__video`)
+      +video#video
+    div(class=`${rootClass}__price`)
+      +price#price
+    div(class=`${rootClass}__contacts`)
+      +contacts#contacts
+
+  div(class=`${rootClass}__footer`)
+    +footer

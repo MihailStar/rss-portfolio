@@ -1,0 +1,66 @@
+@use '../../../styles/common' as *;
+@use '../../button/button';
+
+.price-card {
+  padding-top: 43px - 3px;
+  padding-right: 20px;
+  padding-bottom: 43px - 3px;
+  padding-left: 20px;
+  border: 3px solid $color-gold;
+
+  @media (width >= 768px) {
+    padding-right: 43px - 3px;
+    padding-left: 43px - 3px;
+  }
+
+  &__title {
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-family: $font-serif;
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 56px;
+    color: $color-light;
+    text-align: center;
+    transition: $transition-duration;
+
+    .theme-light & {
+      color: $color-dark;
+    }
+  }
+
+  &__price {
+    display: block;
+    margin-bottom: 20px;
+    font-family: $font-serif;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 48px;
+    color: $color-gold;
+    text-align: center;
+  }
+
+  &__options {
+    @extend %list-reset;
+    margin-bottom: 40px;
+  }
+
+  &__option {
+    font-family: $font-sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 36px;
+    color: $color-light;
+    text-align: center;
+    transition: $transition-duration;
+
+    .theme-light & {
+      color: $color-dark;
+    }
+  }
+
+  &__button {
+    text-align: center;
+  }
+}

@@ -1,0 +1,63 @@
+@use '../../styles/common' as *;
+
+.button {
+  min-width: 220px;
+  padding-top: 7px - 2px;
+  padding-right: 15px - 2px;
+  padding-bottom: 8px - 2px;
+  padding-left: 15px - 2px;
+  font-family: $font-sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 40px;
+  color: $color-gold;
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+  background-color: transparent;
+  border: 2px solid $color-gold;
+  transition: $transition-duration;
+
+  .theme-light & {
+    color: $color-dark;
+  }
+
+  &:hover {
+    color: $color-light;
+
+    .theme-light & {
+      background-color: $color-gold;
+    }
+  }
+
+  &_with-fill {
+    color: $color-dark;
+    background-color: $color-gold;
+  }
+
+  &_with-pulse {
+    box-shadow: 0 0 0 1em transparent;
+
+    &:hover {
+      box-shadow: 0 0 0 0 rgba($color-gold, 0.5);
+    }
+  }
+
+  &_active {
+    color: $color-dark;
+    cursor: text;
+    background-color: $color-gold;
+
+    .theme-light & {
+      color: $color-light;
+    }
+
+    &:hover {
+      color: $color-dark;
+
+      .theme-light & {
+        color: $color-light;
+      }
+    }
+  }
+}

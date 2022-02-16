@@ -1,0 +1,59 @@
+@use 'sass:math';
+@use '../../styles/common' as *;
+@use '../container/container';
+@use './form/form';
+
+.contacts {
+  &__container {
+    min-height: 600px;
+    padding-top: 72px;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-size: cover;
+
+    @media (width >= 1440px) {
+      min-height: 700px;
+      padding-top: 60px;
+    }
+  }
+
+  &__columns {
+    display: flex;
+    column-gap: $grid-gap-width;
+  }
+
+  &__column {
+    &_end {
+      width: 100%;
+      margin-right: auto;
+      margin-left: auto;
+
+      @media (width >= 768px) {
+        width: math.div(450px, 768px - (60 * 2)) * 100%;
+      }
+
+      @media (width >= 1440px) {
+        @include width-in-columns(4);
+        margin-right: 0;
+      }
+    }
+  }
+
+  &__title {
+    margin-top: 0;
+    margin-bottom: 52px;
+    font-family: $font-serif;
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 40px;
+    color: $color-gold;
+    text-align: center;
+
+    @media (width >= 1440px) {
+      margin-bottom: 40px;
+      font-size: 40px;
+      line-height: 80px;
+      text-align: start;
+    }
+  }
+}

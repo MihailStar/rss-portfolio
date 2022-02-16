@@ -1,0 +1,24 @@
+@use '../../../styles/common' as *;
+@use '../../icon/icon';
+
+.social {
+  @extend %list-reset;
+  display: inline-flex;
+  column-gap: 20px;
+  vertical-align: middle;
+
+  &__link {
+    display: inline-block;
+    color: $color-light;
+    text-decoration: none;
+    vertical-align: middle;
+
+    .theme-light & {
+      color: $color-dark;
+    }
+
+    &:hover {
+      color: $color-gold;
+    }
+  }
+}

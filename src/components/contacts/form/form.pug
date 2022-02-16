@@ -1,0 +1,25 @@
+include ../../button/button.pug
+
+mixin form
+  form.form&attributes(attributes)
+    input.form__input(
+      type="email",
+      name="e-mail",
+      placeholder="E-mail",
+      data-i18n="contact-e-mail"
+    )
+    input.form__input(
+      type="tel",
+      name="phone",
+      placeholder="Phone",
+      data-i18n="contact-phone"
+    )
+    textarea.form__textarea(
+      name="message",
+      placeholder="Message",
+      data-i18n="contact-message"
+    )
+    .form__button
+      +button('Send message').button_with-fill.button_with-pulse(
+        data-i18n="contact-send"
+      )

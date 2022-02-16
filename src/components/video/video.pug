@@ -1,0 +1,11 @@
+include ../container/container.pug
+include ../title/title.pug
+include ./player/player.pug
+
+mixin video
+  section.video(aria-labelledby="video-heading")&attributes(attributes)
+    +container.video__container
+      .video__title
+        +title('Video')#video-heading(data-i18n="video")
+      .video__player
+        +player

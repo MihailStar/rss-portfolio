@@ -1,0 +1,14 @@
+mixin navigation
+  -
+    const links = [
+      { title: 'Skills', href: '#skills', i18n: 'skills' },
+      { title: 'Portfolio', href: '#portfolio', i18n: 'portfolio' },
+      { title: 'Video', href: '#video', i18n: 'video' },
+      { title: 'Price', href: '#price', i18n: 'price' },
+      { title: 'Contacts', href: '#contacts', i18n: 'contacts' },
+    ];
+
+  ul.navigation&attributes(attributes)
+    each link in links
+      li.navigation__item
+        a.navigation__link(href=link.href, data-i18n=link.i18n)= link.title

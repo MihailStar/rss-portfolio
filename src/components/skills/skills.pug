@@ -1,0 +1,49 @@
+include ../container/container.pug
+include ../title/title.pug
+include ./skills-card/skills-card.pug
+
+mixin skills
+  -
+    const skills = [
+      {
+        title: 'Digital photography',
+        description: 'High-quality photos in the studio and on the nature',
+        iconName: 'photo',
+        size: { width: 62, height: 50 },
+      },
+      {
+        title: 'Video shooting',
+        description: 'Capture your moments so that they always stay with you',
+        iconName: 'video',
+        size: { width: 60, height: 50 },
+      },
+      {
+        title: 'Retouch',
+        description: 'I strive to make photography surpass reality',
+        iconName: 'retouch',
+        size: { width: 66, height: 50 },
+      },
+      {
+        title: 'Audio',
+        description:
+          'Professional sounds recording for video, advertising, portfolio',
+        iconName: 'audio',
+        size: { width: 32, height: 50 },
+      },
+    ];
+
+  section.skills(aria-labelledby="skills-heading")&attributes(attributes)
+    +container.skills__container
+      .skills__title
+        +title('Skills')#skills-heading(data-i18n="skills")
+      .skills__columns
+        -
+          const columnsModifier = ['start', 'center', 'center', 'end'];
+
+        each skill, index in skills
+          -
+            const skillCardOption = { ...skill, index };
+
+          .skills__column(class=`skills__column_${columnsModifier[index]}`)
+            .skills__card
+              +skills-card(skillCardOption)

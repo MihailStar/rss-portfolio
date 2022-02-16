@@ -1,0 +1,33 @@
+@use '../../../styles/common' as *;
+
+.language {
+  &__link {
+    display: inline-block;
+    font-family: $font-sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 40px;
+    color: $color-light;
+    text-decoration: none;
+    vertical-align: middle;
+    transition: $transition-duration;
+
+    &[href]:hover,
+    &_active {
+      color: $color-gold;
+    }
+  }
+
+  &__separator {
+    display: inline-block;
+    margin-right: 10px;
+    margin-left: 10px;
+    font-family: $font-sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 40px;
+    color: $color-light;
+    text-decoration: none;
+    vertical-align: middle;
+  }
+}

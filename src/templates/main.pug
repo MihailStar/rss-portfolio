@@ -1,0 +1,25 @@
+include ../components/header/header.pug
+include ../components/hero/hero.pug
+include ../components/skills/skills.pug
+include ../components/portfolio/portfolio.pug
+include ../components/video/video.pug
+include ../components/price/price.pug
+include ../components/contacts/contacts.pug
+include ../components/footer/footer.pug
+
+block variables
+
+doctype html
+html(class=rootClass, lang="en")
+  head
+    meta(charset="utf-8")
+    meta(name="robots", content="none")
+    meta(name="viewport", content="width=device-width, initial-scale=1")
+    title= pageTitle
+    link(href="./images/favicon.ico", rel="icon")
+    block head
+    link(href="./styles/main.css", rel="stylesheet")
+
+  body(class=`${rootClass}__body`)
+    block body
+    script(src="./scripts/main.js", defer)

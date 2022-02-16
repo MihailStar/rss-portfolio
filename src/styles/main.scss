@@ -1,0 +1,44 @@
+@use './common' as *;
+@use '../components/header/header';
+@use '../components/hero/hero';
+@use '../components/skills/skills';
+@use '../components/portfolio/portfolio';
+@use '../components/video/video';
+@use '../components/price/price';
+@use '../components/contacts/contacts';
+@use '../components/footer/footer';
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+.portfolio {
+  @media (prefers-reduced-motion: no-preference) {
+    scroll-behavior: smooth;
+  }
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin-top: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+    margin-left: 0;
+    color: $color-light;
+    background-color: $color-dark;
+    transition: color $transition-duration,
+      background-color $transition-duration;
+
+    .theme-light & {
+      color: $color-dark;
+      background-color: $color-light;
+    }
+  }
+
+  &__footer {
+    margin-top: auto;
+  }
+}

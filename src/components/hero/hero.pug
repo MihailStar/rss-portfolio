@@ -1,0 +1,17 @@
+include ../container/container.pug
+include ../button/button.pug
+
+mixin hero
+  section.hero(aria-labelledby="hero-heading")&attributes(attributes)
+    +container.hero__container(
+      style="background-image: url('./images/hero.jpg')"
+    )
+      .hero__columns
+        .hero__column.hero__column_start
+          h1#hero-heading.hero__title(data-i18n="hero-title") Alexa Rise
+          p.hero__description(data-i18n="hero-text") Save sincere emotions, romantic feelings and happy moments of life together with professional photographer Alexa Rise
+          .hero__button
+            +button('Hire me').button_with-fill.button_with-pulse(
+              type="button",
+              data-i18n="hero-hire"
+            )

@@ -1,0 +1,23 @@
+include ../../icon/icon.pug
+
+mixin social
+  -
+    const networks = [
+      { title: 'Instagram' },
+      { title: 'Facebook' },
+      { title: 'Twitter' },
+      { title: 'Pinterest' },
+    ];
+
+  ul.social(aria-label="Social networks")&attributes(attributes)
+    each network in networks
+      -
+        const iconName = network.iconName === undefined ? network.title.toLowerCase() : network.iconName;
+
+      li.social__item
+        a.social__link(
+          class=`social__link_${iconName}`,
+          href=network.href === undefined ? "javascript:void(0);" : network.href,
+          aria-label=network.title
+        )
+          +icon(iconName)(width="32", height="32")

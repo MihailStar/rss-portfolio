@@ -1,0 +1,38 @@
+include ../container/container.pug
+include ../title/title.pug
+include ../button/button.pug
+
+mixin portfolio
+  -
+    const buttons = [
+      { text: 'Winter', modifier: 'with-pulse' },
+      { text: 'Spring', modifier: 'with-pulse' },
+      { text: 'Summer', modifier: 'with-pulse' },
+      { text: 'Autumn', modifier: 'active' },
+    ];
+    const images = Array.from({ length: 6 }, () => ({}));
+
+  section.portfolio(aria-labelledby="portfolio-heading")&attributes(attributes)
+    +container.portfolio__container
+      .portfolio__title
+        +title('Portfolio')#portfolio-heading(data-i18n="portfolio")
+      .portfolio__buttons
+        -
+          const i18n = ['winter', 'spring', 'summer', 'autumn'];
+
+        each button, index in buttons
+          .portfolio__button
+            +button(button.text)(
+              class=button.modifier === undefined ? undefined : `button_${button.modifier}`,
+              type="button",
+              data-season=i18n[index],
+              data-i18n=`portfolio-${i18n[index]}`
+            )
+      .portfolio__images
+        each image, index in images
+          img.portfolio__image(
+            src=image.src === undefined ? `./images/content/autumn/${index + 1}.jpg` : image.src,
+            alt=image.alt === undefined ? "Image from portfolio" : image.alt,
+            width="450",
+            height="560"
+          )

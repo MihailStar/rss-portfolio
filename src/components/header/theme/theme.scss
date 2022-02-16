@@ -1,0 +1,54 @@
+@use '../../../styles/common' as *;
+@use '../../icon/icon';
+
+.theme {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  padding-top: 0;
+  padding-right: 0;
+  padding-bottom: 0;
+  padding-left: 0;
+  color: $color-light;
+  vertical-align: middle;
+  cursor: pointer;
+  background-color: transparent;
+  border: 0;
+
+  &:hover {
+    color: $color-gold;
+  }
+
+  span {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transition: $transition-duration;
+  }
+
+  &_dark {
+    span {
+      &:nth-child(1) {
+        opacity: 1;
+      }
+
+      &:nth-child(2) {
+        opacity: 0;
+      }
+    }
+  }
+
+  &_light {
+    span {
+      &:nth-child(1) {
+        opacity: 0;
+      }
+
+      &:nth-child(2) {
+        opacity: 1;
+      }
+    }
+  }
+}

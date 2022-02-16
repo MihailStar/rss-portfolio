@@ -1,0 +1,57 @@
+include ../container/container.pug
+include ../title/title.pug
+include ./price-card/price-card.pug
+
+mixin price
+  -
+    const tariffs = [
+      {
+        title: 'Standard',
+        price: 500,
+        options: [
+          'One location',
+          '120 photos in color',
+          '12 photos in retouch',
+          'Readiness 2-3 weeks',
+          'Make up, visage',
+        ],
+      },
+      {
+        title: 'Premium',
+        price: 700,
+        options: [
+          'One or two locations',
+          '200 photos in color',
+          '20 photos in retouch',
+          'Readiness 1-2 weeks',
+          'Make up, visage',
+        ],
+      },
+      {
+        title: 'Gold',
+        price: 1000,
+        options: [
+          'Three locations or more',
+          '300 photos in color',
+          '50 photos in retouch',
+          'Readiness 1 week',
+          'Make up, visage, hairstyle',
+        ],
+      },
+    ];
+
+  section.price(aria-labelledby="price-heading")&attributes(attributes)
+    +container.price__container
+      .price__title
+        +title('Price')#price-heading(data-i18n="price")
+      .price__columns
+        -
+          const columnsModifier = ['start', 'center', 'end'];
+
+        each tariff, index in tariffs
+          -
+            const priceCardOption = { ...tariff, buttonText: 'Order shooting', index };
+
+          .price__column(class=`price__column_${columnsModifier[index]}`)
+            .price__card
+              +price-card(priceCardOption)

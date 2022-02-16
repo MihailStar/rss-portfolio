@@ -1,0 +1,13 @@
+include ../container/container.pug
+include ./form/form.pug
+
+mixin contacts
+  section.contacts(aria-labelledby="contacts-heading")&attributes(attributes)
+    +container.contacts__container(
+      style="background-image: url('./images/contacts.jpg')"
+    )
+      .contacts__columns
+        .contacts__column.contacts__column_end
+          h2#contacts-heading.contacts__title(data-i18n="contact-title") Contact me
+          .contacts__form
+            +form

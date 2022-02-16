@@ -1,0 +1,31 @@
+include ../container/container.pug
+include ../icon/icon.pug
+include ./navigation/navigation.pug
+include ./language/language.pug
+include ./theme/theme.pug
+include ./hamburger/hamburger.pug
+include ./offcanvas/offcanvas.pug
+
+mixin header
+  header.header&attributes(attributes)
+    +container.header__container(
+      style="background-image: url('./images/hero.jpg')"
+    )
+      .header__columns
+        .header__column.header__column_start
+          a.header__logotype
+            +icon('logotype')(width="50", height="40")
+        .header__column.header__column_end
+          nav.header__desktop-navigation
+            +navigation(aria-label="Main navigation")
+          .header__language
+            +language
+          .header__theme
+            +theme
+          nav.header__mobile-navigation
+            +hamburger(
+              aria-controls="mobile-navigation",
+              aria-label="Toggle main navigation visibility"
+            )
+            +offcanvas#mobile-navigation
+              +navigation(aria-label="Main navigation")

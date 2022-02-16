@@ -1,0 +1,36 @@
+@use 'sass:math';
+
+$color-dark: #000000;
+$color-gold: #bdae82;
+$color-light: #ffffff;
+
+$font-sans-serif: 'Inter', sans-serif;
+$font-serif: 'Merriweather', serif;
+
+$grid-width: 1400px;
+$grid-number-of-columns: 12;
+$grid-gap-width: 25px;
+$grid-column-width: math.div(
+  $grid-width - $grid-gap-width * ($grid-number-of-columns - 1),
+  $grid-number-of-columns
+);
+
+$transition-duration: 300ms;
+
+%list-reset {
+  padding-left: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+  list-style-type: none;
+}
+
+@function width-in-columns($number-of-columns) {
+  $columns-width: $grid-column-width * $number-of-columns;
+  $gaps-width: $grid-gap-width * ($number-of-columns - 1);
+
+  @return math.div(($columns-width + $gaps-width), $grid-width) * 100%;
+}
+
+@mixin width-in-columns($number-of-columns) {
+  width: width-in-columns($number-of-columns);
+}

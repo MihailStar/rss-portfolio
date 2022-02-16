@@ -1,0 +1,9 @@
+@use '../../styles/common.scss' as *;
+
+.icon {
+  display: inline-block;
+  flex-shrink: 0;
+  vertical-align: middle;
+  pointer-events: none;
+  transition: $transition-duration;
+}

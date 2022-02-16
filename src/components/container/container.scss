@@ -1,0 +1,19 @@
+.container {
+  width: 320px;
+  padding-right: 10px;
+  padding-left: 10px;
+  margin-right: auto;
+  margin-left: auto;
+
+  @media (width >= 768px) {
+    width: 768px;
+    padding-right: 60px;
+    padding-left: 60px;
+  }
+
+  @media (width >= 1440px) {
+    width: 1440px;
+    padding-right: 20px;
+    padding-left: 20px;
+  }
+}

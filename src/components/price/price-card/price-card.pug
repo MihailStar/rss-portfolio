@@ -1,0 +1,16 @@
+include ../../button/button.pug
+
+mixin price-card(options)
+  .price-card&attributes(attributes)
+    h3.price-card__title= options.title
+    em.price-card__price= `${options.price} $`
+    ul.price-card__options
+      each option, index in options.options
+        li.price-card__option(
+          data-i18n=`price-text-${options.index + 1}-${index + 1}`
+        )= option
+    .price-card__button
+      +button(options.buttonText).button_with-fill.button_with-pulse(
+        type="button",
+        data-i18n="price-order"
+      )

@@ -1,0 +1,11 @@
+include ../../icon/icon.pug
+
+mixin skills-card(options)
+  .skills-card&attributes(attributes)
+    h3.skills-card__title(data-i18n=`skill-title-${options.index + 1}`)= options.title
+    p.skills-card__description(data-i18n=`skill-text-${options.index + 1}`)= options.description
+    .skills-card__icon
+      +icon(options.iconName)(
+        width=options.size.width,
+        height=options.size.height
+      )

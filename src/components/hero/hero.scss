@@ -1,0 +1,81 @@
+@use 'sass:math';
+@use '../../styles/common' as *;
+@use '../container/container';
+@use '../button/button';
+
+.hero {
+  &__container {
+    min-height: 500px;
+    padding-top: 78px;
+    background-color: $color-dark;
+    background-repeat: no-repeat;
+    background-position: 50% -90px;
+    background-size: auto 500px + 90px;
+
+    // for PP
+    @media (width >= 768px) and (width < 1440px) {
+      background-position: -5px -90px + -30px;
+      background-size: auto 620px;
+    }
+
+    @media (width >= 1440px) {
+      min-height: 820px;
+      padding-top: 160px;
+      background-size: auto 820px + 90px;
+    }
+  }
+
+  &__columns {
+    display: flex;
+    column-gap: $grid-gap-width;
+  }
+
+  &__column {
+    &_start {
+      width: 100%;
+      margin-right: auto;
+
+      @media (width >= 768px) {
+        width: math.div(390px, 768px - (60 * 2)) * 100%;
+      }
+
+      @media (width >= 1440px) {
+        @include width-in-columns(5);
+        padding-right: 20px;
+        padding-left: 60px;
+      }
+    }
+  }
+
+  &__title {
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-family: $font-serif;
+    font-size: 32px;
+    font-weight: 400;
+    line-height: 64px;
+    color: $color-light;
+
+    @media (width >= 1440px) {
+      margin-bottom: 10px;
+      font-size: 60px;
+      font-weight: 700;
+      line-height: 120px;
+    }
+  }
+
+  &__description {
+    margin-top: 0;
+    margin-bottom: 60px;
+    font-family: $font-sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 24px;
+    color: $color-light;
+
+    @media (width >= 1440px) {
+      margin-bottom: 25px;
+      line-height: 40px;
+    }
+  }
+}
